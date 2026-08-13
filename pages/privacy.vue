@@ -5,8 +5,9 @@ useSeoMeta({ title: "GitReader privacy", description: "How the GitReader website
 <template>
   <LegalPage eyebrow="Trust center" title="Privacy, without euphemisms." summary="GitReader is designed around local files and explicit connections. This page separates what the current website does from what the macOS app does." updated="August 13, 2026">
     <h2>Website</h2>
-    <p>The GitReader website is a static site hosted with GitHub Pages. It does not include advertising scripts, behavioral analytics, cookies set by GitReader, or a GitReader-operated form backend.</p>
-    <p>The beta application is assembled in your browser and opens a prefilled GitHub issue. The site does not transmit or store the fields itself. If you submit the issue, the information becomes public and is processed under GitHub’s policies.</p>
+    <p>The GitReader website is a static site hosted with GitHub Pages. It includes no advertising network, tracking cookie, or third-party behavioral analytics SDK.</p>
+    <p>When private signup is enabled, the beta form sends your email, optional GitHub handle, macOS version, repository-count range, bounded workflow description, consent choices, and Cloudflare Turnstile token to GitReader’s Cloudflare Worker. The request is stored privately in Cloudflare D1 and is not posted to GitHub.</p>
+    <p>Declined or inactive requests are deleted or anonymized within 90 days. Accepted beta records are deleted or anonymized within 12 months after the last beta interaction. Short-lived pseudonymous abuse counters expire after 24 hours. Contact support to request deletion.</p>
 
     <h2>macOS app</h2>
     <h3>GitHub access</h3>
@@ -23,9 +24,9 @@ useSeoMeta({ title: "GitReader privacy", description: "How the GitReader website
     <p>The browser extension and <code>gr</code> CLI connect to a local GitReader bridge. Pairing credentials are stored in Keychain. Do not expose the bridge port to untrusted networks.</p>
 
     <h2>Telemetry</h2>
-    <p>The current public website does not install GitReader analytics. A future app telemetry system is planned but is not represented here as shipped. If introduced, it will require explicit disclosure and consent before collecting product-usage events.</p>
+    <p>Website and app product analytics are optional and off by default. With separate consent, GitReader accepts only fixed event names and low-cardinality page/source labels, then stores daily aggregate counts. It does not send form fields, repository details, paths, code, email, GitHub identity, or a stable device/session identifier. Failed app events remain only in bounded memory and are not written to disk.</p>
 
     <h2>Deletion and questions</h2>
-    <p>You can remove local GitReader files using Finder and revoke GitReader’s GitHub access from your GitHub account. GitHub issues can be edited or closed through GitHub. For a privacy question or removal request concerning a public beta issue, use the routes on the <NuxtLink to="/support">support page</NuxtLink>.</p>
+    <p>You can remove local GitReader files using Finder and revoke GitReader’s GitHub access from your GitHub account. Private signup will remain closed until a monitored private deletion contact is shown here; do not put a privacy request containing personal data in a public GitHub issue.</p>
   </LegalPage>
 </template>

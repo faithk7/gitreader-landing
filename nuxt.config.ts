@@ -5,6 +5,12 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   modules: ["@nuxtjs/tailwindcss"],
   css: ["~/assets/css/main.css"],
+  runtimeConfig: {
+    public: {
+      commercialApiBaseURL: process.env.NUXT_PUBLIC_COMMERCIAL_API_BASE_URL || "",
+      turnstileSiteKey: process.env.NUXT_PUBLIC_TURNSTILE_SITE_KEY || "",
+    },
+  },
   app: {
     baseURL,
     head: {
