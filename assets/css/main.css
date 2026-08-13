@@ -19,6 +19,17 @@
   .section-rule { @apply border-t border-border-subtle; }
   .button-primary { @apply inline-flex items-center justify-center gap-2 rounded-pill bg-accent px-6 py-3 text-sm font-semibold text-[#17100b] transition duration-200 hover:-translate-y-0.5 hover:bg-accent-hover; box-shadow: 0 12px 32px rgba(255,122,26,.18); }
   .button-secondary { @apply inline-flex items-center justify-center gap-2 rounded-pill border border-border-subtle bg-surface/80 px-6 py-3 text-sm font-medium text-text-primary transition duration-200 hover:-translate-y-0.5 hover:border-border-active hover:bg-surface-elevated; }
+  .field-label { @apply mb-2 block text-sm font-medium text-text-primary; }
+  .field-control { @apply w-full rounded-container border border-border-subtle bg-bg/70 px-4 py-3 text-sm text-text-primary placeholder:text-text-muted transition focus:border-border-active focus:outline-none; }
+  .legal-copy { @apply text-[15px] leading-7 text-text-secondary; }
+  .legal-copy h2 { @apply mt-12 font-display text-3xl text-text-primary; }
+  .legal-copy h2:first-child { @apply mt-0; }
+  .legal-copy h3 { @apply mt-8 text-base font-semibold text-text-primary; }
+  .legal-copy p { @apply mt-4; }
+  .legal-copy ul { @apply mt-4 space-y-2 pl-5; }
+  .legal-copy li { @apply list-disc pl-1; }
+  .legal-copy a { @apply text-accent underline decoration-accent/40 underline-offset-4 hover:text-accent-hover; }
+  .legal-note { @apply mt-8 rounded-container border border-border-active bg-accent/[.05] p-5 text-sm leading-6 text-text-secondary; }
 }
 
 @media (prefers-reduced-motion: reduce) {

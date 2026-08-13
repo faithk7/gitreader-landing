@@ -19,7 +19,7 @@ const baseURL = useRuntimeConfig().app.baseURL;
           </p>
           <div class="mt-9 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
             <a href="#workflow" class="button-primary">See the workflow <span aria-hidden="true">↓</span></a>
-            <a href="https://github.com/faithk7/gitreader-landing/issues/new?title=Beta%20access%20request&body=I%27d%20like%20to%20try%20GitReader%20on%20macOS.%0A%0AmacOS%20version%3A%20%0AWhat%20I%20want%20to%20use%20GitReader%20for%3A%20" target="_blank" rel="noreferrer" class="button-secondary">Request beta access</a>
+            <NuxtLink to="/beta" class="button-secondary">Request beta access</NuxtLink>
           </div>
           <p class="mt-5 font-mono text-xs text-text-muted">macOS 14+ · Private beta · No card required</p>
         </div>

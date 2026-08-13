@@ -1,0 +1,45 @@
+name: Beta access request
+description: Request access to the private GitReader beta for macOS.
+title: "Beta request: "
+labels: [beta-request]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for your interest in GitReader. This issue is public. Do not include credentials, private repository names, employer information, or confidential project details.
+  - type: input
+    id: github-handle
+    attributes:
+      label: GitHub handle
+      placeholder: octocat
+    validations:
+      required: true
+  - type: dropdown
+    id: macos-version
+    attributes:
+      label: macOS version
+      options: [macOS 14, macOS 15, macOS 16, macOS 17 beta]
+    validations:
+      required: true
+  - type: dropdown
+    id: repository-volume
+    attributes:
+      label: Saved repository count
+      options: [Under 100, 100–499, 500–999, "1,000+"]
+    validations:
+      required: true
+  - type: textarea
+    id: workflow
+    attributes:
+      label: What do you want to use GitReader for?
+      description: Keep the description general and non-confidential.
+      placeholder: Compare open-source libraries, save notes against source files, and reuse that context with coding agents.
+    validations:
+      required: true
+  - type: checkboxes
+    id: public-consent
+    attributes:
+      label: Public request acknowledgement
+      options:
+        - label: I understand this request is public and contains no confidential information.
+          required: true

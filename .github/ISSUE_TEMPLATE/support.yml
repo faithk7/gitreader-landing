@@ -1,0 +1,24 @@
+name: Product support
+description: Ask a non-confidential beta or pre-sales question.
+title: "Support: "
+labels: [support]
+body:
+  - type: markdown
+    attributes:
+      value: Do not include access tokens, AI keys, private repository names, or confidential information.
+  - type: textarea
+    id: question
+    attributes:
+      label: What do you need help with?
+    validations:
+      required: true
+  - type: input
+    id: macos-version
+    attributes:
+      label: macOS version
+      placeholder: macOS 15.6
+  - type: textarea
+    id: observed
+    attributes:
+      label: What happened?
+      description: Include reproducible steps when reporting a product problem.
