@@ -1,120 +1,28 @@
 <script setup lang="ts">
-const visible = ref(false);
-const section = ref<HTMLElement | null>(null);
-
-onMounted(() => {
-  const observer = new IntersectionObserver(
-    ([entry]) => {
-      if (entry.isIntersecting) visible.value = true;
-    },
-    { threshold: 0.2 }
-  );
-  if (section.value) observer.observe(section.value);
-  onUnmounted(() => observer.disconnect());
-});
-
 const features = [
-  {
-    icon: "search",
-    title: "Smart Search & Filter",
-    description:
-      "Find any repo instantly. Filter by language, topics, or custom labels.",
-  },
-  {
-    icon: "folder",
-    title: "Collections & Labels",
-    description:
-      "Organize starred repos into collections. Tag and categorize your way.",
-  },
-  {
-    icon: "code",
-    title: "Code Browser",
-    description:
-      "Browse repository code with syntax highlighting, right from the app.",
-  },
+  { index: "01", title: "Recover the right repository", description: "Search your library, filter by language and topic, and keep purpose-built collections for the work you return to." },
+  { index: "02", title: "Read code without ceremony", description: "Clone locally, navigate the file tree and outline, and read syntax-highlighted source without setting up a full IDE project." },
+  { index: "03", title: "Keep knowledge attached", description: "Write Markdown notes linked to the exact source that made the idea click, then find that context again later." },
+  { index: "04", title: "Follow a reading guide", description: "Turn an unfamiliar codebase into a deliberate sequence of files, concepts, and questions with AI-assisted repository guides." },
+  { index: "05", title: "See architecture clearly", description: "Read rendered Markdown and Mermaid diagrams beside the code instead of bouncing between tabs and tools." },
+  { index: "06", title: "Hand context to your agent", description: "Use the gr CLI and GitReader Agent Skill to let coding agents inspect your library, collections, and repository context." },
 ];
 </script>
 
 <template>
-  <section id="features" ref="section" class="relative py-32 px-6">
-    <div class="max-w-6xl mx-auto">
-      <div
-        class="text-center mb-20 transition-all duration-700 ease-out"
-        :class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'"
-      >
-        <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight mb-4">
-          Everything you need to manage your stars
-        </h2>
-        <p class="text-text-secondary text-lg max-w-lg mx-auto">
-          Built for developers who star more repos than they can remember.
-        </p>
+  <section id="features" class="section-rule relative px-6 py-28 sm:py-36">
+    <div class="mx-auto max-w-6xl">
+      <div class="grid gap-6 border-b border-border-subtle pb-12 md:grid-cols-2">
+        <div><p class="eyebrow mb-4">A complete research loop</p><h2 class="font-display text-4xl leading-tight tracking-tight sm:text-5xl">From “save this” to<br /><em class="font-normal text-accent">“I understand it.”</em></h2></div>
+        <p class="max-w-lg text-lg leading-8 text-text-secondary md:justify-self-end md:self-end">GitReader keeps discovery, reading, interpretation, and recall in one native flow—without trying to replace your editor or Git client.</p>
       </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div
-          v-for="(feature, i) in features"
-          :key="feature.title"
-          class="text-center md:text-left transition-all duration-700 ease-out"
-          :class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
-          :style="{ transitionDelay: `${200 + i * 100}ms` }"
-        >
-          <div
-            class="w-12 h-12 rounded-container bg-accent/10 border border-accent/20 flex items-center justify-center mb-5 mx-auto md:mx-0"
-          >
-            <svg
-              v-if="feature.icon === 'search'"
-              class="w-5 h-5 text-accent"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-            >
-              <circle cx="11" cy="11" r="8" />
-              <path d="m21 21-4.35-4.35" stroke-linecap="round" />
-            </svg>
-            <svg
-              v-else-if="feature.icon === 'folder'"
-              class="w-5 h-5 text-accent"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-            <svg
-              v-else
-              class="w-5 h-5 text-accent"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-            >
-              <polyline
-                points="16 18 22 12 16 6"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <polyline
-                points="8 6 2 12 8 18"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </div>
-
-          <h3 class="text-lg font-medium mb-2">{{ feature.title }}</h3>
-          <p class="text-text-secondary text-sm leading-relaxed">
-            {{ feature.description }}
-          </p>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3">
+        <div v-for="feature in features" :key="feature.title" class="group border-b border-border-subtle py-9 md:px-8 md:first:pl-0 lg:border-r lg:[&:nth-child(3n)]:border-r-0 lg:[&:nth-child(n+4)]:border-b-0">
+          <span class="font-mono text-[10px] text-accent">{{ feature.index }}</span>
+          <h3 class="mt-8 text-lg font-semibold transition-colors group-hover:text-accent">{{ feature.title }}</h3>
+          <p class="mt-3 text-sm leading-6 text-text-secondary">{{ feature.description }}</p>
         </div>
       </div>
     </div>
-
-    <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border-subtle to-transparent" />
   </section>
 </template>

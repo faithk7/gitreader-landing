@@ -1,45 +1,23 @@
 import type { Config } from "tailwindcss";
 
 export default {
-  content: [
-    "./components/**/*.{vue,js,ts}",
-    "./pages/**/*.{vue,js,ts}",
-    "./app.vue",
-  ],
+  content: ["./components/**/*.{vue,js,ts}", "./pages/**/*.{vue,js,ts}", "./app.vue"],
   theme: {
     extend: {
       colors: {
-        bg: "#0a0a0a",
-        surface: "#171717",
-        "surface-elevated": "#1f1f1f",
-        accent: {
-          DEFAULT: "#f97316",
-          hover: "#ea580c",
-          glow: "rgba(249,115,22,0.1)",
-        },
-        border: {
-          subtle: "#262626",
-          active: "rgba(249,115,22,0.3)",
-        },
-        text: {
-          primary: "#fafafa",
-          secondary: "#a3a3a3",
-          muted: "#737373",
-        },
+        bg: "#0c0d0f",
+        surface: "#131518",
+        "surface-elevated": "#191c20",
+        accent: { DEFAULT: "#ff7a1a", hover: "#ff913f", glow: "rgba(255,122,26,0.14)" },
+        border: { subtle: "#292d32", active: "rgba(255,122,26,0.42)" },
+        text: { primary: "#f4f1ea", secondary: "#aaa9a4", muted: "#737570" },
       },
       fontFamily: {
-        sans: ["Inter", "system-ui", "-apple-system", "sans-serif"],
-        mono: [
-          "JetBrains Mono",
-          "ui-monospace",
-          "SFMono-Regular",
-          "monospace",
-        ],
+        sans: ["Avenir Next", "Avenir", "ui-sans-serif", "sans-serif"],
+        display: ["Iowan Old Style", "Baskerville", "Georgia", "serif"],
+        mono: ["SFMono-Regular", "Menlo", "ui-monospace", "monospace"],
       },
-      borderRadius: {
-        container: "12px",
-        pill: "9999px",
-      },
+      borderRadius: { container: "16px", pill: "9999px" },
     },
   },
   plugins: [],

@@ -1,80 +1,20 @@
 <script setup lang="ts">
-const visible = ref(false);
-const section = ref<HTMLElement | null>(null);
-
-onMounted(() => {
-  const observer = new IntersectionObserver(
-    ([entry]) => {
-      if (entry.isIntersecting) visible.value = true;
-    },
-    { threshold: 0.2 }
-  );
-  if (section.value) observer.observe(section.value);
-  onUnmounted(() => observer.disconnect());
-});
-
 const steps = [
-  {
-    number: "01",
-    title: "Connect GitHub",
-    description: "Sign in with a personal access token. Your data stays local.",
-    code: "Settings → Connect to GitHub",
-  },
-  {
-    number: "02",
-    title: "Browse your stars",
-    description: "All your starred repos in a beautiful grid with metadata.",
-    code: "2,847 starred repositories loaded",
-  },
-  {
-    number: "03",
-    title: "Search, filter, organize",
-    description: "Filter by language or topic. Create collections. Browse code.",
-    code: 'filter: language="rust" topic="cli"',
-  },
+  { number: "01", title: "Recover", description: "Find the repository you saved months ago and recover why it mattered.", code: 'collection:"local-first" language:swift' },
+  { number: "02", title: "Understand", description: "Move from README to architecture to relevant source with a focused reading guide.", code: "Guide → Storage model → OrderedSet.swift" },
+  { number: "03", title: "Preserve", description: "Attach your conclusion to its source so future-you starts with context, not tabs.", code: "Note saved at OrderedSet.swift:42" },
+  { number: "04", title: "Reuse", description: "Bring that durable context into your next agent session through gr.", code: "gr repo show apple/swift-collections" },
 ];
 </script>
 
 <template>
-  <section ref="section" class="relative py-32 px-6 bg-surface/50">
-    <div class="max-w-5xl mx-auto">
-      <div
-        class="text-center mb-20 transition-all duration-700 ease-out"
-        :class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'"
-      >
-        <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight mb-4">
-          Three steps. That's it.
-        </h2>
-        <p class="text-text-secondary text-lg">
-          From zero to organized in under a minute.
-        </p>
-      </div>
-
-      <div class="space-y-6">
-        <div
-          v-for="(step, i) in steps"
-          :key="step.number"
-          class="flex flex-col sm:flex-row items-start gap-6 p-6 rounded-container border border-border-subtle bg-bg/60 transition-all duration-700 ease-out"
-          :class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'"
-          :style="{ transitionDelay: `${200 + i * 150}ms` }"
-        >
-          <span
-            class="text-accent font-mono text-sm font-medium shrink-0 mt-1"
-          >
-            {{ step.number }}
-          </span>
-
-          <div class="flex-1 min-w-0">
-            <h3 class="text-lg font-medium mb-1">{{ step.title }}</h3>
-            <p class="text-text-secondary text-sm mb-4">
-              {{ step.description }}
-            </p>
-            <div
-              class="font-mono text-sm text-text-muted bg-surface px-4 py-2.5 rounded-container border border-border-subtle inline-block"
-            >
-              {{ step.code }}
-            </div>
-          </div>
+  <section id="workflow" class="section-rule relative bg-surface/40 px-6 py-28 sm:py-36">
+    <div class="mx-auto max-w-6xl">
+      <div class="mb-16 max-w-2xl"><p class="eyebrow mb-4">One continuous workflow</p><h2 class="font-display text-4xl tracking-tight sm:text-5xl">Keep the thread.</h2><p class="mt-5 text-lg leading-8 text-text-secondary">Stop rebuilding the same mental model every time a repository becomes relevant again.</p></div>
+      <div class="grid md:grid-cols-2">
+        <div v-for="step in steps" :key="step.number" class="-mt-px border border-border-subtle bg-bg/50 p-7 md:-ml-px">
+          <div class="flex items-center justify-between"><span class="font-mono text-xs text-accent">{{ step.number }}</span><span class="h-px w-12 bg-border-subtle" /></div>
+          <div class="mt-9"><h3 class="font-display text-3xl">{{ step.title }}</h3><p class="mt-3 max-w-md text-sm leading-6 text-text-secondary">{{ step.description }}</p><div class="mt-6 inline-block border border-border-subtle bg-surface px-3 py-2 font-mono text-[10px] text-text-muted">{{ step.code }}</div></div>
         </div>
       </div>
     </div>

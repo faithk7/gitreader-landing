@@ -1,29 +1,15 @@
 <template>
-  <section class="relative py-32 px-6">
-    <div
-      class="absolute inset-0 bg-gradient-to-t from-accent/[0.03] via-transparent to-transparent pointer-events-none"
-    />
-
-    <div class="relative z-10 max-w-2xl mx-auto text-center">
-      <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight mb-4">
-        Ready to organize your stars?
-      </h2>
-      <p class="text-text-secondary text-lg mb-10">
-        Free, native, and built for developers who live on GitHub.
-      </p>
-
-      <a
-        href="#"
-        class="inline-flex items-center gap-2.5 bg-accent hover:bg-accent-hover text-white font-medium px-8 py-3.5 rounded-pill text-base transition-all duration-200 hover:scale-[1.03] hover:shadow-[0_0_30px_rgba(249,115,22,0.2)]"
-      >
-        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path
-            d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"
-          />
-        </svg>
-        Download for macOS
-      </a>
-      <p class="text-text-muted text-sm mt-4">Requires macOS 13.0 or later</p>
+  <section class="section-rule relative overflow-hidden px-6 py-28 sm:py-36">
+    <div class="absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/[.08] blur-3xl" />
+    <div class="relative z-10 mx-auto max-w-3xl text-center">
+      <p class="eyebrow mb-5">Private beta</p>
+      <h2 class="font-display text-5xl leading-[1.04] tracking-tight sm:text-6xl">Your repository library<br />deserves a memory.</h2>
+      <p class="mx-auto mt-7 max-w-xl text-lg leading-8 text-text-secondary">GitReader is preparing for its first public macOS release. Request beta access to help shape the reading workflow before launch.</p>
+      <div class="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a href="https://github.com/faithk7/gitreader-landing/issues/new?title=Beta%20access%20request&body=I%27d%20like%20to%20try%20GitReader%20on%20macOS.%0A%0AmacOS%20version%3A%20%0AWhat%20I%20want%20to%20use%20GitReader%20for%3A%20" target="_blank" rel="noreferrer" class="button-primary">Request beta access <span aria-hidden="true">↗</span></a>
+        <a href="#pricing" class="button-secondary">Review launch pricing</a>
+      </div>
+      <p class="mt-5 font-mono text-xs text-text-muted">Requires a GitHub account · macOS 14+</p>
     </div>
   </section>
 </template>

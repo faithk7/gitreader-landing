@@ -1,69 +1,47 @@
 <script setup lang="ts">
-const show = ref(false);
-
-onMounted(() => {
-  requestAnimationFrame(() => {
-    show.value = true;
-  });
-});
+const baseURL = useRuntimeConfig().app.baseURL;
 </script>
 
 <template>
-  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
-    <div
-      class="absolute inset-0 bg-gradient-to-b from-accent/[0.03] via-transparent to-transparent pointer-events-none"
-    />
+  <section class="relative min-h-screen overflow-hidden px-6 pb-24 pt-32 sm:pt-40">
+    <div class="relative z-10 mx-auto max-w-6xl">
+      <div class="grid items-center gap-16 lg:grid-cols-[0.9fr_1.1fr]">
+        <div>
+          <div class="mb-7 flex items-center gap-3">
+            <img :src="`${baseURL}app-icon.png`" alt="" class="h-10 w-10 rounded-xl" />
+            <span class="eyebrow">Native repository research</span>
+          </div>
+          <h1 class="font-display text-6xl leading-[.94] tracking-[-.045em] sm:text-7xl lg:text-[5.4rem]">
+            Read less<br /><em class="font-normal text-accent">twice.</em>
+          </h1>
+          <p class="mt-8 max-w-xl text-lg leading-8 text-text-secondary">
+            GitReader turns saved GitHub repositories into durable working knowledge—code, source-linked notes, reading guides, and agent-ready context in one calm macOS workspace.
+          </p>
+          <div class="mt-9 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+            <a href="#workflow" class="button-primary">See the workflow <span aria-hidden="true">↓</span></a>
+            <a href="https://github.com/faithk7/gitreader-landing/issues/new?title=Beta%20access%20request&body=I%27d%20like%20to%20try%20GitReader%20on%20macOS.%0A%0AmacOS%20version%3A%20%0AWhat%20I%20want%20to%20use%20GitReader%20for%3A%20" target="_blank" rel="noreferrer" class="button-secondary">Request beta access</a>
+          </div>
+          <p class="mt-5 font-mono text-xs text-text-muted">macOS 14+ · Private beta · No card required</p>
+        </div>
 
-    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center pt-24 pb-32">
-      <div
-        class="transition-all duration-700 ease-out"
-        :class="show ? 'opacity-100 scale-100' : 'opacity-0 scale-95'"
-      >
-        <img
-          src="/app-icon.png"
-          alt="GitReader"
-          class="w-32 h-32 mx-auto rounded-3xl mb-10"
-          :style="{
-            filter: show ? 'drop-shadow(0 0 40px rgba(249,115,22,0.15))' : 'none',
-          }"
-        />
-      </div>
-
-      <h1
-        class="text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.05] mb-6 transition-all duration-700 delay-100 ease-out"
-        :class="show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'"
-      >
-        Your starred repos,
-        <span class="text-accent">organized.</span>
-      </h1>
-
-      <p
-        class="text-lg sm:text-xl text-text-secondary max-w-xl mx-auto mb-10 transition-all duration-700 delay-200 ease-out"
-        :class="show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'"
-      >
-        A modern macOS app to browse, search, and organize your starred GitHub
-        repositories. Beautiful, fast, and built with SwiftUI.
-      </p>
-
-      <div
-        class="flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-700 delay-300 ease-out"
-        :class="show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'"
-      >
-        <a
-          href="#"
-          class="inline-flex items-center gap-2.5 bg-accent hover:bg-accent-hover text-white font-medium px-8 py-3.5 rounded-pill text-base transition-all duration-200 hover:scale-[1.03] hover:shadow-[0_0_30px_rgba(249,115,22,0.2)]"
-        >
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-            <path
-              d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"
-            />
-          </svg>
-          Download for macOS
-        </a>
-        <span class="text-text-muted text-sm">Requires macOS 13.0+</span>
+        <div class="relative">
+          <div class="absolute -inset-10 rounded-full bg-accent/[.06] blur-3xl" />
+          <div class="relative overflow-hidden rounded-[22px] border border-white/10 bg-[#101216] shadow-2xl shadow-black/50">
+            <div class="flex h-11 items-center gap-2 border-b border-white/[.07] px-4"><span class="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" /><span class="h-2.5 w-2.5 rounded-full bg-[#febc2e]" /><span class="h-2.5 w-2.5 rounded-full bg-[#28c840]" /><span class="ml-4 font-mono text-[10px] text-text-muted">GitReader / swift-collections</span></div>
+            <div class="grid min-h-[420px] grid-cols-[7.5rem_1fr] sm:grid-cols-[10rem_1fr]">
+              <aside class="border-r border-white/[.07] p-3 sm:p-4">
+                <p class="mb-4 font-mono text-[9px] uppercase tracking-widest text-text-muted">Collection / Research</p>
+                <div class="space-y-1 font-mono text-[10px] text-text-secondary"><p class="rounded bg-accent/10 px-2 py-2 text-accent">swift-collections</p><p class="px-2 py-2">swift-algorithms</p><p class="px-2 py-2">swift-syntax</p><p class="px-2 py-2">swift-testing</p></div>
+              </aside>
+              <div class="min-w-0 p-4 sm:p-6">
+                <div class="mb-5 flex items-start justify-between gap-4"><div><p class="font-mono text-[9px] uppercase tracking-widest text-accent">Reading guide · 4 of 7</p><h2 class="mt-2 text-lg font-semibold">How OrderedSet stores identity</h2></div><span class="rounded-full border border-white/10 px-2 py-1 font-mono text-[9px] text-text-muted">local</span></div>
+                <div class="space-y-2 font-mono text-[10px] leading-5 sm:text-[11px]"><p><span class="text-[#c586c0]">struct</span> <span class="text-[#4ec9b0]">OrderedSet</span>&lt;Element&gt; {</p><p class="pl-4 text-text-muted">// Dense storage preserves order</p><p class="pl-4"><span class="text-[#569cd6]">internal var</span> _elements: ContiguousArray&lt;Element&gt;</p><p class="pl-4"><span class="text-[#569cd6]">internal var</span> _table: _HashTable</p><p>}</p></div>
+                <div class="mt-8 border-l-2 border-accent bg-accent/[.05] p-4"><p class="font-mono text-[9px] uppercase tracking-widest text-accent">Source-linked note</p><p class="mt-2 text-xs leading-5 text-text-secondary">The array owns iteration order; the hash table maps membership back to offsets.</p><p class="mt-3 font-mono text-[9px] text-text-muted">OrderedSet.swift · L42–61</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-
-    <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border-subtle to-transparent" />
   </section>
 </template>
