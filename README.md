@@ -19,6 +19,10 @@ NUXT_APP_BASE_URL=/gitreader-landing/ npm run generate
 
 The generated static site is written to `.output/public` and deployed by `.github/workflows/deploy-pages.yml` on pushes to `main`.
 
+## Promotion video
+
+The first 18-second product-promotion test is available at `/videos/gitreader-promo-test.mp4`. Its reproducible Remotion source lives in [`promo/gitreader-promo-test`](promo/gitreader-promo-test/README.md).
+
 ## Public routes
 
 - `/` — product overview, workflow, product screenshot, and provisional pricing
