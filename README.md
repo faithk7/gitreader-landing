@@ -32,4 +32,9 @@ The first 18-second product-promotion test is available at `/videos/gitreader-pr
 - `/license` — provisional personal-license and refund terms
 - `/support` — public support routes and private vulnerability reporting
 
-The site has no form backend, cookies, or analytics. Beta-form values remain in the browser until the visitor chooses to review the prefilled request on GitHub.
+The site uses the private GitReader commercial API only when both deployment variables are configured:
+
+- `GITREADER_COMMERCIAL_API_BASE_URL`
+- `GITREADER_TURNSTILE_SITE_KEY`
+
+The beta form never falls back to public GitHub issues. Optional analytics is off by default and sends only fixed event names, page labels, and a normalized acquisition channel after explicit consent. It stores no cookies, form fields, raw UTM values, repository details, or stable visitor identifiers.

@@ -1,4 +1,9 @@
 <script setup lang="ts">
+import {
+  acquisitionStorageKey,
+  type AcquisitionChannel,
+} from "~/utils/acquisition";
+
 useSeoMeta({
   title: "Request GitReader beta access",
   description: "Tell us how you research GitHub repositories and request access to the private GitReader beta for macOS.",
@@ -23,6 +28,7 @@ const website = ref("");
 const privacyConsent = ref(false);
 const interviewConsent = ref(false);
 const analyticsConsent = ref(false);
+const acquisitionChannel = ref<AcquisitionChannel>("direct");
 const turnstileToken = ref("");
 const turnstileContainer = ref<HTMLElement | null>(null);
 const turnstileWidgetID = ref("");
@@ -88,7 +94,7 @@ watch(analyticsConsent, (enabled) => {
   analyticsStartSent = true;
   sendAnalytics([
     { name: "page_viewed", source: "beta" },
-    { name: "beta_form_started", source: "beta" },
+    { name: "beta_form_started", source: acquisitionChannel.value },
   ]);
 });
 
@@ -115,7 +121,7 @@ async function submitRequest() {
     if (!response.ok) throw new Error(`request_${response.status}`);
     submitState.value = "success";
     submitMessage.value = "Your private beta request was received. We will contact selected participants by email.";
-    sendAnalytics([{ name: "beta_form_completed", source: "beta" }]);
+    sendAnalytics([{ name: "beta_form_completed", source: acquisitionChannel.value }]);
   } catch {
     submitState.value = "error";
     submitMessage.value = "The private request could not be saved. Nothing was posted publicly. Please try again later.";
@@ -125,7 +131,11 @@ async function submitRequest() {
   }
 }
 
-onMounted(renderTurnstile);
+onMounted(() => {
+  const storedChannel = sessionStorage.getItem(acquisitionStorageKey);
+  if (storedChannel) acquisitionChannel.value = storedChannel as AcquisitionChannel;
+  void renderTurnstile();
+});
 </script>
 
 <template>
