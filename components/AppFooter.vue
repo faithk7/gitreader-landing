@@ -12,7 +12,7 @@
           <NuxtLink to="/support" class="transition-colors hover:text-text-primary">Support</NuxtLink>
           <NuxtLink to="/privacy" class="transition-colors hover:text-text-primary">Privacy</NuxtLink>
           <NuxtLink to="/license" class="transition-colors hover:text-text-primary">License & refunds</NuxtLink>
-          <a href="https://github.com/faithk7/gitreader-landing" target="_blank" rel="noreferrer" class="transition-colors hover:text-text-primary">Website source</a>
+          <a href="https://github.com/faithk7/git-reader" target="_blank" rel="noreferrer" class="transition-colors hover:text-text-primary">Website source</a>
         </nav>
       </div>
       <div class="mt-10 flex flex-col gap-3 border-t border-border-subtle pt-6 text-xs text-text-muted sm:flex-row sm:items-center sm:justify-between">

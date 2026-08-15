@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://k7y.space/gitreader-landing/sitemap.xml
+Sitemap: https://k7y.space/git-reader/sitemap.xml

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://k7y.space/gitreader-landing/</loc>
+    <loc>https://k7y.space/git-reader/</loc>
     <lastmod>2026-08-13</lastmod>
   </url>
-  <url><loc>https://k7y.space/gitreader-landing/beta</loc><lastmod>2026-08-13</lastmod></url>
-  <url><loc>https://k7y.space/gitreader-landing/faq</loc><lastmod>2026-08-13</lastmod></url>
-  <url><loc>https://k7y.space/gitreader-landing/privacy</loc><lastmod>2026-08-13</lastmod></url>
-  <url><loc>https://k7y.space/gitreader-landing/license</loc><lastmod>2026-08-13</lastmod></url>
-  <url><loc>https://k7y.space/gitreader-landing/support</loc><lastmod>2026-08-13</lastmod></url>
+  <url><loc>https://k7y.space/git-reader/beta</loc><lastmod>2026-08-13</lastmod></url>
+  <url><loc>https://k7y.space/git-reader/faq</loc><lastmod>2026-08-13</lastmod></url>
+  <url><loc>https://k7y.space/git-reader/privacy</loc><lastmod>2026-08-13</lastmod></url>
+  <url><loc>https://k7y.space/git-reader/license</loc><lastmod>2026-08-13</lastmod></url>
+  <url><loc>https://k7y.space/git-reader/support</loc><lastmod>2026-08-13</lastmod></url>
 </urlset>

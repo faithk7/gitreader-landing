@@ -30,7 +30,7 @@ jobs:
       - name: Generate static site
         run: npm run generate
         env:
-          NUXT_APP_BASE_URL: /gitreader-landing/
+          NUXT_APP_BASE_URL: /git-reader/
           NUXT_TELEMETRY_DISABLED: "1"
           NUXT_PUBLIC_COMMERCIAL_API_BASE_URL: ${{ vars.GITREADER_COMMERCIAL_API_BASE_URL }}
           NUXT_PUBLIC_TURNSTILE_SITE_KEY: ${{ vars.GITREADER_TURNSTILE_SITE_KEY }}
